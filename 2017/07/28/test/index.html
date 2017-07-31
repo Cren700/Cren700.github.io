@@ -11,17 +11,17 @@
     
 
     
-    <meta name="description" content="#依赖NodeJsMac用户和Windows用户安装比较简单，直接下载Node.js按照默认配置安装即可。Linux用户下载编译后的文件解压后即可使用（在其bin文件夹下有npm和node的命令工具）。为了方便起见，Linux用户还需要使用ln命令将node和npm设为全局生效：12$ ln -s /解压目录/bin/node /usr/local/bin/npm$ ln -s /解压目录/bin">
+    <meta name="description" content="依赖NodeJsMac用户和Windows用户安装比较简单，直接下载Node.js按照默认配置安装即可。Linux用户下载编译后的文件解压后即可使用（在其bin文件夹下有npm和node的命令工具）。为了方便起见，Linux用户还需要使用ln命令将node和npm设为全局生效：12$ ln -s /解压目录/bin/node /usr/local/bin/npm$ ln -s /解压目录/bin/">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo 安装过程">
 <meta property="og:url" content="http://blog.cren700.com/2017/07/28/test/index.html">
 <meta property="og:site_name" content="Cren&#39;s Blog">
-<meta property="og:description" content="#依赖NodeJsMac用户和Windows用户安装比较简单，直接下载Node.js按照默认配置安装即可。Linux用户下载编译后的文件解压后即可使用（在其bin文件夹下有npm和node的命令工具）。为了方便起见，Linux用户还需要使用ln命令将node和npm设为全局生效：12$ ln -s /解压目录/bin/node /usr/local/bin/npm$ ln -s /解压目录/bin">
+<meta property="og:description" content="依赖NodeJsMac用户和Windows用户安装比较简单，直接下载Node.js按照默认配置安装即可。Linux用户下载编译后的文件解压后即可使用（在其bin文件夹下有npm和node的命令工具）。为了方便起见，Linux用户还需要使用ln命令将node和npm设为全局生效：12$ ln -s /解压目录/bin/node /usr/local/bin/npm$ ln -s /解压目录/bin/">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2017-07-31T14:20:37.000Z">
+<meta property="og:updated_time" content="2017-07-31T14:26:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo 安装过程">
-<meta name="twitter:description" content="#依赖NodeJsMac用户和Windows用户安装比较简单，直接下载Node.js按照默认配置安装即可。Linux用户下载编译后的文件解压后即可使用（在其bin文件夹下有npm和node的命令工具）。为了方便起见，Linux用户还需要使用ln命令将node和npm设为全局生效：12$ ln -s /解压目录/bin/node /usr/local/bin/npm$ ln -s /解压目录/bin">
+<meta name="twitter:description" content="依赖NodeJsMac用户和Windows用户安装比较简单，直接下载Node.js按照默认配置安装即可。Linux用户下载编译后的文件解压后即可使用（在其bin文件夹下有npm和node的命令工具）。为了方便起见，Linux用户还需要使用ln命令将node和npm设为全局生效：12$ ln -s /解压目录/bin/node /usr/local/bin/npm$ ln -s /解压目录/bin/">
 
     
     <link rel="alternative" href="/atom.xml" title="Cren&#39;s Blog" type="application/atom+xml">
@@ -97,21 +97,20 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#运行hexo服务器"><span class="toc-number">1.</span> <span class="toc-text">运行hexo服务器</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#依赖NodeJs"><span class="toc-number">1.</span> <span class="toc-text">依赖NodeJs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装hexo"><span class="toc-number">2.</span> <span class="toc-text">安装hexo</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Quick-Start"><span class="toc-number">3.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建hexo工程"><span class="toc-number">3.1.</span> <span class="toc-text">创建hexo工程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新建POST"><span class="toc-number">3.2.</span> <span class="toc-text">新建POST</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成静态文件"><span class="toc-number">3.3.</span> <span class="toc-text">生成静态文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行hexo服务器"><span class="toc-number">3.4.</span> <span class="toc-text">运行hexo服务器</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<p>#依赖NodeJs<br>Mac用户和Windows用户安装比较简单，直接下载Node.js按照默认配置安装即可。Linux用户下载编译后的文件解压后即可使用（在其bin文件夹下有npm和node的命令工具）。为了方便起见，Linux用户还需要使用ln命令将node和npm设为全局生效：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ln -s /解压目录/bin/node /usr/<span class="built_in">local</span>/bin/npm</div><div class="line">$ ln -s /解压目录/bin/npm /usr/<span class="built_in">local</span>/bin/npm</div></pre></td></tr></table></figure></p>
+		<h1 id="依赖NodeJs"><a href="#依赖NodeJs" class="headerlink" title="依赖NodeJs"></a>依赖NodeJs</h1><p>Mac用户和Windows用户安装比较简单，直接下载Node.js按照默认配置安装即可。Linux用户下载编译后的文件解压后即可使用（在其bin文件夹下有npm和node的命令工具）。为了方便起见，Linux用户还需要使用ln命令将node和npm设为全局生效：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ln -s /解压目录/bin/node /usr/<span class="built_in">local</span>/bin/npm</div><div class="line">$ ln -s /解压目录/bin/npm /usr/<span class="built_in">local</span>/bin/npm</div></pre></td></tr></table></figure></p>
 <p>安装完成后打开命令行工具（Windows用户在开始菜单打开Node.js文件夹下的Node.js command prompt）进行接下来的操作。</p>
 <p>##更改npm源</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org npm info underscore</div></pre></td></tr></table></figure>
-<p>#安装hexo<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo-cli</div></pre></td></tr></table></figure></p>
-<p>#Quick Start</p>
-<p>##创建hexo工程<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init blog</div></pre></td></tr></table></figure></p>
+<h1 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo-cli</div></pre></td></tr></table></figure>
+<h1 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h1><h2 id="创建hexo工程"><a href="#创建hexo工程" class="headerlink" title="创建hexo工程"></a>创建hexo工程</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init blog</div></pre></td></tr></table></figure>
 <p>创建一个文件夹blog（此处blog换成你自己想要的名字），使用Hexo命令初始化blog为hexo工程目录。</p>
-<p>##新建POST<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> blog</div><div class="line">$ hexo new <span class="string">"Helloworld"</span></div></pre></td></tr></table></figure></p>
+<h2 id="新建POST"><a href="#新建POST" class="headerlink" title="新建POST"></a>新建POST</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> blog</div><div class="line">$ hexo new <span class="string">"Helloworld"</span></div></pre></td></tr></table></figure>
 <p>进入初始化后的blog文件夹，创建名为HelloWorld的文件，此时会在/blog/sources/_post/目录下生成HelloWorld.md文件。</p>
-<p>##生成静态文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure></p>
+<h2 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
 <p>Or<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo g -d</div></pre></td></tr></table></figure></p>
 <p>相当于 hexo generate -deploy</p>
 <p>使用Hexo引擎将Markdown格式的文件解析成可以使用浏览器查看的HTML文件，HTML文件存储在blog/public目录下。</p>
@@ -164,7 +163,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#运行hexo服务器"><span class="toc-number">1.</span> <span class="toc-text">运行hexo服务器</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#依赖NodeJs"><span class="toc-number">1.</span> <span class="toc-text">依赖NodeJs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装hexo"><span class="toc-number">2.</span> <span class="toc-text">安装hexo</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Quick-Start"><span class="toc-number">3.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建hexo工程"><span class="toc-number">3.1.</span> <span class="toc-text">创建hexo工程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新建POST"><span class="toc-number">3.2.</span> <span class="toc-text">新建POST</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成静态文件"><span class="toc-number">3.3.</span> <span class="toc-text">生成静态文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行hexo服务器"><span class="toc-number">3.4.</span> <span class="toc-text">运行hexo服务器</span></a></li></ol></li></ol>
  
   </div>
 
