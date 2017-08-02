@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Cren要成为大牛&#39;s Blog">
 <meta property="og:description" content="背景：使用Hexo时，提交代码到github.io上，每次deploy时需要输入github的账户信息，如何避免这样的情况出现。 步骤一（权限问题）查看文件权限，如果没有授权，请更新权限user:x1234$ cd /home/x$ ll$ chmod 775 /home/x/.ssh$ chmod 600 /home/x/.ssh/authorized_keys 如果执行完上面的命令后，用Git">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2017-07-31T14:52:07.000Z">
+<meta property="og:updated_time" content="2017-08-02T14:03:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何避免git每次提交都要输入账户信息">
 <meta name="twitter:description" content="背景：使用Hexo时，提交代码到github.io上，每次deploy时需要输入github的账户信息，如何避免这样的情况出现。 步骤一（权限问题）查看文件权限，如果没有授权，请更新权限user:x1234$ cd /home/x$ ll$ chmod 775 /home/x/.ssh$ chmod 600 /home/x/.ssh/authorized_keys 如果执行完上面的命令后，用Git">
@@ -180,9 +180,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>背景：使用Hexo时，提交代码到github.io上，每次deploy时需要输入github的账户信息，如何避免这样的情况出现。</p>
-<h1 id="步骤一（权限问题）"><a href="#步骤一（权限问题）" class="headerlink" title="步骤一（权限问题）"></a>步骤一（权限问题）</h1><p>查看文件权限，如果没有授权，请更新权限user:x<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> /home/x</div><div class="line">$ ll</div><div class="line">$ chmod 775 /home/x/.ssh</div><div class="line">$ chmod 600 /home/x/.ssh/authorized_keys</div></pre></td></tr></table></figure></p>
+<h3 id="步骤一（权限问题）"><a href="#步骤一（权限问题）" class="headerlink" title="步骤一（权限问题）"></a>步骤一（权限问题）</h3><p>查看文件权限，如果没有授权，请更新权限user:x<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> /home/x</div><div class="line">$ ll</div><div class="line">$ chmod 775 /home/x/.ssh</div><div class="line">$ chmod 600 /home/x/.ssh/authorized_keys</div></pre></td></tr></table></figure></p>
 <p>如果执行完上面的命令后，用Git拉取（两次）代码，第二次就不用输入账号和密码的话，恭喜，你已经解决，否则继续步骤二。</p>
-<h1 id="步骤二（创建认证文件）"><a href="#步骤二（创建认证文件）" class="headerlink" title="步骤二（创建认证文件）"></a>步骤二（创建认证文件）</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">vim /home/x/ .git-credentials</div><div class="line"></div><div class="line"><span class="comment">#输入内容</span></div><div class="line">https://&#123;username&#125;:&#123;password&#125;@github.com</div><div class="line"></div><div class="line"><span class="comment">#保存退出后执行下面命令</span></div><div class="line">git config --global credential.helper store</div></pre></td></tr></table></figure>
+<h3 id="步骤二（创建认证文件）"><a href="#步骤二（创建认证文件）" class="headerlink" title="步骤二（创建认证文件）"></a>步骤二（创建认证文件）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">vim /home/x/ .git-credentials</div><div class="line"></div><div class="line"><span class="comment">#输入内容</span></div><div class="line">https://&#123;username&#125;:&#123;password&#125;@github.com</div><div class="line"></div><div class="line"><span class="comment">#保存退出后执行下面命令</span></div><div class="line">git config --global credential.helper store</div></pre></td></tr></table></figure>
 <p>执行完后<br>文件/home/x/.gitconfig中会新增一项<br>helper = store<br>这时再执行git push/pull的时候，还需要再输入一次账号和密码，然后就不用再输入了</p>
 
       
