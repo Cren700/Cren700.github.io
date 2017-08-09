@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Cren要成为大牛&#39;s Blog">
 <meta property="og:description" content="关闭Mysql1# service mysql stop 运行1# mysqld_safe --skip-grant-tables &amp;amp;  // 意思是启动MySQL服务的时候跳过权限表认证。 为了安全，可以这样禁止远程连接1# mysqld_safe --skip-grant-tables --skip-networking 再开一个窗口执行mysqld_safe –skip-grant-">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2017-08-09T15:37:19.000Z">
+<meta property="og:updated_time" content="2017-08-09T15:42:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="修改mysql 5.7 root 密码">
 <meta name="twitter:description" content="关闭Mysql1# service mysql stop 运行1# mysqld_safe --skip-grant-tables &amp;amp;  // 意思是启动MySQL服务的时候跳过权限表认证。 为了安全，可以这样禁止远程连接1# mysqld_safe --skip-grant-tables --skip-networking 再开一个窗口执行mysqld_safe –skip-grant-">
@@ -181,7 +181,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h5 id="关闭Mysql"><a href="#关闭Mysql" class="headerlink" title="关闭Mysql"></a>关闭Mysql</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># service mysql stop</span></div></pre></td></tr></table></figure>
-<h5 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># mysqld_safe --skip-grant-tables &amp;  // 意思是启动MySQL服务的时候跳过权限表认证。</div></pre></td></tr></table></figure>
+<h5 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># mysqld_safe --skip-grant-tables &amp;  // 意思是启动MySQL服务的时候跳过权限表认证。</span></div></pre></td></tr></table></figure>
 <h5 id="为了安全，可以这样禁止远程连接"><a href="#为了安全，可以这样禁止远程连接" class="headerlink" title="为了安全，可以这样禁止远程连接"></a>为了安全，可以这样禁止远程连接</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># mysqld_safe --skip-grant-tables --skip-networking</span></div></pre></td></tr></table></figure>
 <h5 id="再开一个窗口"><a href="#再开一个窗口" class="headerlink" title="再开一个窗口"></a>再开一个窗口</h5><p>执行mysqld_safe –skip-grant-tables 之后，没有办法操作，所以需要另一个窗口进行剩下的操作。</p>
 <h5 id="输入mysql回车"><a href="#输入mysql回车" class="headerlink" title="输入mysql回车"></a>输入mysql回车</h5><h5 id="更改密码"><a href="#更改密码" class="headerlink" title="更改密码"></a>更改密码</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; update mysql.user <span class="built_in">set</span> authentication_string=password(<span class="string">'xxx'</span>) <span class="built_in">where</span> user=<span class="string">'root'</span> and Host = <span class="string">'localhost'</span>;</div></pre></td></tr></table></figure>
