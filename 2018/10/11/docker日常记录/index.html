@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://blog.cren700.com">
   <title>Docker日常记录 | Cren要成为大牛&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Docker 查看docker运行状态  1docker stats  Display a live stream of container(s) resource usage statistics  CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT     MEM %">
+  <meta name="description" content="Docker1.查看docker运行状态 1docker stats  &amp;gt;Display a live stream of container(s) resource usage statistics      CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT     MEM %">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker日常记录">
 <meta property="og:url" content="http://blog.cren700.com/2018/10/11/docker日常记录/index.html">
 <meta property="og:site_name" content="Cren要成为大牛&#39;s Blog">
-<meta property="og:description" content="Docker 查看docker运行状态  1docker stats  Display a live stream of container(s) resource usage statistics  CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT     MEM %">
+<meta property="og:description" content="Docker1.查看docker运行状态 1docker stats  &amp;gt;Display a live stream of container(s) resource usage statistics      CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT     MEM %">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-10-10T06:54:02.000Z">
+<meta property="og:updated_time" content="2018-10-10T07:03:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker日常记录">
-<meta name="twitter:description" content="Docker 查看docker运行状态  1docker stats  Display a live stream of container(s) resource usage statistics  CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT     MEM %">
+<meta name="twitter:description" content="Docker1.查看docker运行状态 1docker stats  &amp;gt;Display a live stream of container(s) resource usage statistics      CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT     MEM %">
   
     <link rel="alternative" href="/atom.xml" title="Cren要成为大牛&#39;s Blog" type="application/atom+xml">
   
@@ -179,24 +179,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h3><ol>
-<li><p><strong>查看docker运行状态</strong></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker stats</div></pre></td></tr></table></figure>
-<blockquote>
-<p>Display a live stream of container(s) resource usage statistics</p>
-</blockquote>
-<pre><code>CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
-2d748431d75b        nginx               0.00%               2.77MiB / 1.952GiB    0.14%               72.2kB / 421kB      4.44MB / 4.1kB      2
-</code></pre></li>
-<li><p><strong>运行一个应用</strong></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull training/webapp # 载入镜像</div></pre></td></tr></table></figure>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run -d -P training/webapp python app.py</div></pre></td></tr></table></figure>
-<blockquote>
-<p>参数说明:</p>
-</blockquote>
-</li>
-</ol>
-<pre><code>&gt;* -d:让容器在后台运行。
+        <h3 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h3><p><strong>1.查看docker运行状态</strong></p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker stats</div></pre></td></tr></table></figure>
+
+&gt;Display a live stream of container(s) resource usage statistics
+
+    CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+    2d748431d75b        nginx               0.00%               2.77MiB / 1.952GiB    0.14%               72.2kB / 421kB      4.44MB / 4.1kB      2
+</code></pre><p><strong>2.运行一个应用</strong></p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull training/webapp # 载入镜像</div></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run -d -P training/webapp python app.py</div></pre></td></tr></table></figure>
+
+&gt;参数说明:
+
+
+&gt;* -d:让容器在后台运行。
 &gt;* -P:将容器内部使用的网络端口映射到我们使用的主机上。
 &gt;* -p:是容器内部端口绑定到指定的主机端口。
 </code></pre><ol>
