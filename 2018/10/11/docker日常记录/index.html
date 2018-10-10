@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://blog.cren700.com">
   <title>Docker日常记录 | Cren要成为大牛&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="Docker 查看docker运行状态  1docker stats  Display a live stream of container(s) resource usage statistics  CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT     MEM %">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker日常记录">
 <meta property="og:url" content="http://blog.cren700.com/2018/10/11/docker日常记录/index.html">
 <meta property="og:site_name" content="Cren要成为大牛&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="Docker 查看docker运行状态  1docker stats  Display a live stream of container(s) resource usage statistics  CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT     MEM %">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-10-10T06:47:38.000Z">
+<meta property="og:updated_time" content="2018-10-10T06:54:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker日常记录">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:description" content="Docker 查看docker运行状态  1docker stats  Display a live stream of container(s) resource usage statistics  CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT     MEM %">
   
     <link rel="alternative" href="/atom.xml" title="Cren要成为大牛&#39;s Blog" type="application/atom+xml">
   
@@ -179,15 +179,52 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h3 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h3><ol>
+<li><p><strong>查看docker运行状态</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker stats</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Display a live stream of container(s) resource usage statistics</p>
+</blockquote>
+<pre><code>CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+2d748431d75b        nginx               0.00%               2.77MiB / 1.952GiB    0.14%               72.2kB / 421kB      4.44MB / 4.1kB      2
+</code></pre></li>
+<li><p><strong>运行一个应用</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull training/webapp # 载入镜像</div></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run -d -P training/webapp python app.py</div></pre></td></tr></table></figure>
+<blockquote>
+<p>参数说明:</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>&gt;* -d:让容器在后台运行。
+&gt;* -P:将容器内部使用的网络端口映射到我们使用的主机上。
+&gt;* -p:是容器内部端口绑定到指定的主机端口。
+</code></pre><ol>
+<li><p><strong>查看 WEB 应用容器</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">docker ps</div><div class="line">docker ps -al</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p><strong>网络端口的快捷方式</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">docker port 2d748431d75b</div><div class="line">docker port nginx</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>查看WEB应用程序日志</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker logs -f 2d748431d75b</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>查看容器的配置和状态信息</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker inspect nginx</div></pre></td></tr></table></figure>
+<p> 返回一个json配置信息</p>
+</li>
+<li><p><strong>停止、重启、移除应用容器</strong></p>
+<p> stop、start、rm 【name】</p>
+</li>
+<li><p><strong>使用新镜像 ubuntu 来启动一个容器</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec -t -i ubuntu /bin/bash</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>根据镜像coin配置 code 容器</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">docker run  -d --name code  \</div><div class="line">-p 10081:80 \</div><div class="line">--net bitkan --ip 172.19.0.84 \</div><div class="line">-v $DEV_SOURCE_DIR/:/data/www/ \</div><div class="line">-v db-code:/usr/local/mysql/var/ \</div><div class="line">coin</div></pre></td></tr></table></figure>
+</li>
+</ol>
 
       
 
