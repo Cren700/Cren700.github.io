@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://blog.cren700.com">
-  <title>Archives: 2018 | Cren码上Blog</title>
+  <title>CodeIgniter (CI) 相关 | Cren码上Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="断其一指不如伤其十指">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Cren码上Blog">
-<meta property="og:url" content="http://blog.cren700.com/archives/2018/index.html">
+  <meta name="description" content="###CodeIgniter (CI) 相关 #####1.迁移类：migration 1）application/config/migration.php 文件中的 $config[‘migration_type’] 参数设置命名规则。 2）所有的迁移文件位于 application/migrations/ 目录， 并命名为这种格式：20121031100537_add_blog.php  3）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CodeIgniter (CI) 相关">
+<meta property="og:url" content="http://blog.cren700.com/2018/11/13/CodeIgniter-CI-相关/index.html">
 <meta property="og:site_name" content="Cren码上Blog">
-<meta property="og:description" content="断其一指不如伤其十指">
+<meta property="og:description" content="###CodeIgniter (CI) 相关 #####1.迁移类：migration 1）application/config/migration.php 文件中的 $config[‘migration_type’] 参数设置命名规则。 2）所有的迁移文件位于 application/migrations/ 目录， 并命名为这种格式：20121031100537_add_blog.php  3）">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2018-11-13T08:35:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cren码上Blog">
-<meta name="twitter:description" content="断其一指不如伤其十指">
+<meta name="twitter:title" content="CodeIgniter (CI) 相关">
+<meta name="twitter:description" content="###CodeIgniter (CI) 相关 #####1.迁移类：migration 1）application/config/migration.php 文件中的 $config[‘migration_type’] 参数设置命名规则。 2）所有的迁移文件位于 application/migrations/ 目录， 并命名为这种格式：20121031100537_add_blog.php  3）">
   
     <link rel="alternative" href="/atom.xml" title="Cren码上Blog" type="application/atom+xml">
   
@@ -158,129 +159,169 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-CodeIgniter-CI-相关" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      CodeIgniter (CI) 相关
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/13/CodeIgniter-CI-相关/" class="archive-article-date">
+
+        
+        <a href="/2018/11/13/CodeIgniter-CI-相关/" class="archive-article-date">
   	<time datetime="2018-11-13T08:35:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-13</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/13/CodeIgniter-CI-相关/">CodeIgniter (CI) 相关</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###<center>CodeIgniter (CI) 相关</center></p>
+<p>#####1.<a href="https://codeigniter.org.cn/user_guide/libraries/migration.html?highlight=migrations#CI_Migration::find_migrations" target="_blank" rel="external">迁移类：migration</a></p>
+<p>1）application/config/migration.php 文件中的 $config[‘migration_type’] 参数设置命名规则。</p>
+<p>2）所有的迁移文件位于 application/migrations/ 目录， 并命名为这种格式：20121031100537_add_blog.php </p>
+<p>3）在 application/controllers/Migrate.php 文件中添加如下的代码来更新数据库:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line"></div><div class="line">class Migrate extends CI_Controller</div><div class="line">&#123;</div><div class="line"></div><div class="line">    public function index()</div><div class="line">    &#123;</div><div class="line">        $this-&gt;load-&gt;library(&apos;migration&apos;);</div><div class="line"></div><div class="line">        if ($this-&gt;migration-&gt;latest())</div><div class="line">        &#123;</div><div class="line">            show_error($this-&gt;migration-&gt;error_string());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>4)DB配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE `migrations` (</div><div class="line">  `version` bigint(20) NOT NULL</div><div class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8</div></pre></td></tr></table></figure>
+<p>#####2.<a href="https://codeigniter.org.cn/user_guide/general/errors.html?highlight=log_message#log_message" target="_blank" rel="external">错误处理</a><br>1）log_message($level, $message)</p>
+<p>2) 日志文件中写入信息，第一个参数你必须提供 三个信息级别中的一个，用于指定记录的是什么类型的信息（调试， 错误和一般信息）</p>
+<p>3) 有三种信息类型：</p>
+<p>错误信息。这些是真正的错误，例如 PHP 错误或用户错误。<br>调试信息。这些信息帮助你调试程序，例如，你可以在一个类 初始化的地方记录下来作为调试信息。<br>一般信息。这些是最低级别的信息，简单的给出程序运行过程中的一些信息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">if ($some_var == &apos;&apos;)</div><div class="line">&#123;</div><div class="line">    log_message(&apos;error&apos;, &apos;Some variable did not contain a value.&apos;);</div><div class="line">&#125;</div><div class="line">else</div><div class="line">&#123;</div><div class="line">    log_message(&apos;debug&apos;, &apos;Some variable was correctly set&apos;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">log_message(&apos;info&apos;, &apos;The purpose of some variable is to provide some value.&apos;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>为了保证日志文件被正确写入，logs/ 目录必须设置为可写的。 此外，你必须要设置 application/config/config.php 文件中的 “log_threshold” 参数，举个例子，例如你只想记录错误信息，而不想 记录另外两种类型的信息，可以通过这个参数来控制。如果你将 该参数设置为 0 ，日志就相当于被禁用了。</p>
+</blockquote>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>赞赏~~占位<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://blog.cren700.com/2018/11/13/CodeIgniter-CI-相关/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/19/bookmarks/" class="archive-article-date">
-  	<time datetime="2018-10-19T04:28:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-19</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/10/19/bookmarks/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">bookmarks</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/19/bookmarks/">bookmarks</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/10/docker日常记录/" class="archive-article-date">
-  	<time datetime="2018-10-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/10/docker日常记录/">Docker日常记录</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">dev</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/tool/" class="article-tag-list-link color5">tool</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -304,8 +345,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
