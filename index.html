@@ -180,15 +180,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###<center>CodeIgniter (CI) 相关</center>###</p>
-<p>#####1.<a href="https://codeigniter.org.cn/user_guide/libraries/migration.html?highlight=migrations#CI_Migration::find_migrations" target="_blank" rel="external">迁移类：migration</a>#####</p>
-<p>1）application/config/migration.php 文件中的 $config[‘migration_type’] 参数设置命名规则。</p>
+        <h3 id="CodeIgniter-CI-相关"><a href="#CodeIgniter-CI-相关" class="headerlink" title="CodeIgniter (CI) 相关"></a><center>CodeIgniter (CI) 相关</center></h3><h5 id="1-迁移类：migration"><a href="#1-迁移类：migration" class="headerlink" title="1.迁移类：migration"></a>1.<a href="https://codeigniter.org.cn/user_guide/libraries/migration.html?highlight=migrations#CI_Migration::find_migrations" target="_blank" rel="external">迁移类：migration</a></h5><p>1）application/config/migration.php 文件中的 $config[‘migration_type’] 参数设置命名规则。</p>
 <p>2）所有的迁移文件位于 application/migrations/ 目录， 并命名为这种格式：20121031100537_add_blog.php </p>
 <p>3）在 application/controllers/Migrate.php 文件中添加如下的代码来更新数据库:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line"></div><div class="line">class Migrate extends CI_Controller</div><div class="line">&#123;</div><div class="line"></div><div class="line">    public function index()</div><div class="line">    &#123;</div><div class="line">        $this-&gt;load-&gt;library(&apos;migration&apos;);</div><div class="line"></div><div class="line">        if ($this-&gt;migration-&gt;latest())</div><div class="line">        &#123;</div><div class="line">            show_error($this-&gt;migration-&gt;error_string());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>4)DB配置</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE `migrations` (</div><div class="line">  `version` bigint(20) NOT NULL</div><div class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8</div></pre></td></tr></table></figure>
-<p>#####2.<a href="https://codeigniter.org.cn/user_guide/general/errors.html?highlight=log_message#log_message" target="_blank" rel="external">错误处理</a>#####<br>1）log_message($level, $message)</p>
+<h5 id="2-错误处理"><a href="#2-错误处理" class="headerlink" title="2.错误处理"></a>2.<a href="https://codeigniter.org.cn/user_guide/general/errors.html?highlight=log_message#log_message" target="_blank" rel="external">错误处理</a></h5><p>1）log_message($level, $message)</p>
 <p>2) 日志文件中写入信息，第一个参数你必须提供 三个信息级别中的一个，用于指定记录的是什么类型的信息（调试， 错误和一般信息）</p>
 <p>3) 有三种信息类型：</p>
 <p>错误信息。这些是真正的错误，例如 PHP 错误或用户错误。<br>调试信息。这些信息帮助你调试程序，例如，你可以在一个类 初始化的地方记录下来作为调试信息。<br>一般信息。这些是最低级别的信息，简单的给出程序运行过程中的一些信息。</p>
