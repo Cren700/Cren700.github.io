@@ -180,8 +180,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##Learning log</p>
-<ol>
+        <h2 id="Learning-log"><a href="#Learning-log" class="headerlink" title="Learning log"></a><center>Learning log</center></h2><ol>
 <li><p>【<strong>CODE</strong>】</p>
 <pre><code>1）【PHP】
 - **getopt:从命令行参数列表中获取选项**
@@ -204,10 +203,6 @@
 - **异步执行函数 register_shutdown_function**
 - **bcsub — 2个任意精度数字的减法**
 - **file\_get\_contents post数据提交方式**
-
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">    $POSTFIELDS = array(&quot;receipt-data&quot; =&gt; $receipt_data);    //</div><div class="line">$POSTFIELDS = json_encode($POSTFIELDS);    // 注释了也没用</div><div class="line">$url = &quot;https://sandbox.itunes.apple.com/verifyReceipt&quot;;</div><div class="line">        </div><div class="line">$context = stream_context_create(array(</div><div class="line">    &apos;http&apos; =&gt; array(</div><div class="line">        &apos;method&apos;  =&gt; &apos;POST&apos;,</div><div class="line">        &apos;header&apos;  =&gt; &quot;Content-type: application/x-www-form-urlencoded&quot;,</div><div class="line">        &apos;content&apos; =&gt; http_build_query($POSTFIELDS),</div><div class="line">        &apos;timeout&apos; =&gt; 20,</div><div class="line">    )</div><div class="line">));</div><div class="line">return file_get_contents($url, false, $context);</div></pre></td></tr></table></figure>
-
-- 
 </code></pre>
       
 
