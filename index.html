@@ -234,32 +234,77 @@
 <ul>
 <li><strong>插入或者更新</strong></li>
 </ul>
-<figure class="highlight plain"><figcaption><span>into tbl set name = 1 on duplicate key update name = 2;```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">        </div><div class="line">- **避免strvar方法，很小或者很大数字出现科学计数的问题。**</div></pre></td></tr></table></figure>
-<p>public function covertNumber2Str($data)<br>{<br>    $sql = ‘SELECT CONVERT(?, CHAR(50)) as rst’;<br>    $result = $this-&gt;db-&gt;query($sql, $data);<br>    return $result-&gt;row_array()[‘rst’];<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">        </div><div class="line">1. 【**Command**】</div><div class="line"></div><div class="line">mac os x 查看网络端口情况</div></pre></td></tr></table></figure></p>
-<p>使用 netstat 命令<br>a. <code>netstat -nat | grep &lt;端口号&gt;</code>  , 如命令 <code>netstat -nat | grep 3306</code><br>b. <code>netstat -nat |grep LISTEN</code></p>
-<p>使用 lsof 命令<br>$ lsof -n -P -i TCP -s TCP:LISTEN<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">        </div><div class="line">3. 【**Docker**】</div><div class="line"></div><div class="line">**常用命令**</div></pre></td></tr></table></figure></p>
-<p>查看当前运行的容器：docker ps<br>查看所有容器 ：docker ps -a</p>
-<p>停止容器：docker stop 容器name或id<br>启动容器：docker start 容器name或id<br>port-redis容器的端口映射：sudo docker run -d -p 6379:6379 –name port-redis redis</p>
-<p>删除容器：docker rm 容器id<br>删除所有容器：docker rm ${docker -a -q}<br>容器日志：docker logs 容器name或id<br>登录容器：docker exec -it 容器name或id bash </p>
-<hr>
-<p>docker run  -d –name coin-tron  \<br>-p 11094:80 \<br>–net bitkan –ip 172.19.0.94 \<br>-v $DEV_SOURCE_DIR/:/data/www/ \<br>-v db-code-tron:/usr/local/mysql/var/ \<br>base-coin</p>
-<p>docker run  -d –name coin-bch  \<br>-p 11083:80 \<br>–net bitkan –ip 172.19.0.94 \<br>-v $DEV_SOURCE_DIR/:/data/www/ \<br>-v db-code-bch:/usr/local/mysql/var/ \<br>image-btc</p>
-<hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">4. 【**协议理解**】</div><div class="line">&gt;**SSL**</div><div class="line"></div><div class="line">&gt;SSL(Secure Socket Layer，安全套接层) 简单来说是一种加密技术, 通过它, 我们可以在通信的双方上建立一个安全的通信链路, 因此数据交互的双方可以安全地通信, 而不需要担心数据被窃取. 关于 SSL 的深入知识, 可以看这篇文章: SSL/TLS协议运行机制的概述</div><div class="line">        </div><div class="line">&gt;**WSS**</div><div class="line">        </div><div class="line">&gt;WSS 是 Web Socket Secure 的简称, 它是 WebSocket 的加密版本. 我们知道 WebSocket 中的数据是不加密的, 但是不加密的数据很容易被别有用心的人窃取, 因此为了保护数据安全, 人们将 WebSocket 与 SSL 结合, 实现了安全的 WebSocket 通信, 即 WebSocket Secure.</div><div class="line">所以说 WSS 是使用 SSL 进行加密了的 WebSocket 通信技术.</div><div class="line">        </div><div class="line">&gt;**HTTPS**</div><div class="line">        </div><div class="line">&gt;其实 HTTPS 和 WSS 类似, HTTP 之于 HTTPS 就像 WebSocket 之于 WebSocket Secure.</div><div class="line">HTTP 协议本身也是明文传输, 因此为了数据的安全性, 人们利用 SSL 作为加密通道, 在 SSL 之上传递 HTTP 数据, 因此 SSL 加密通道上运行的 HTTP 协议就被称为 HTTPS 了.</div><div class="line">        </div><div class="line">        </div><div class="line">5. 【**PHP 7 &amp;&amp; LUMEN**】搭建基于配置的API接口</div><div class="line"></div><div class="line">6. 【**网易云·云信**】[云信](http://dev.yunxin.163.com/) IM通讯</div><div class="line">        </div><div class="line">&gt; 单聊、群聊、聊天室功能等</div><div class="line"></div><div class="line">7. 【**sftp**】</div><div class="line"></div><div class="line">**压缩**</div><div class="line">tar -czf jpg.tar.gz *.jpg   //将目录里所有jpg文件打包成jpg.tar后，并且将其用gzip压缩，生成一个gzip压缩过的包，命名为jpg.tar.gz</div><div class="line">**解压**</div><div class="line">tar -xzvf file.tar.gz //解压tar.gz</div><div class="line">        </div><div class="line">1）将文件转入proxy跳板机中，首先进入proxy</div></pre></td></tr></table></figure>
-<p>#进入本地相应目录，使用<br>sftp proxy<br>sftp&gt; put node_modules.tar.gz<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">2）进入跳板机后，找到相应路径，推送到服务器</div></pre></td></tr></table></figure></p>
-<p>sftp -i ~/.ssh/id_rsa root@192.168.20.228<br>sftp&gt; put node_modules.tar.gz<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">8. 【**hg 暂存 shelve**】</div></pre></td></tr></table></figure></p>
-<p>vim ~/.hgrc<br>=&gt;<br>[extensions]<br>shelve =</p>
-<h1 id="使用-shelve-暂存-unshelve-还原"><a href="#使用-shelve-暂存-unshelve-还原" class="headerlink" title="使用 shelve 暂存, unshelve 还原"></a>使用 shelve 暂存, unshelve 还原</h1><p>hg shelve -n “Unix test”<br>hg unshelve -n “Unix test”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">9. 【**mocha 测试用例**】</div></pre></td></tr></table></figure></p>
-<p>安装：npm install -g mocha<br>启动：mocha xx.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">        </div><div class="line">10. 【**安装nvm，node, pm2**】</div><div class="line">- Install nvm : [nvm](https://github.com/creationix/nvm)</div><div class="line">- 使用：``` curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">insert into tbl set name = 1 on duplicate key update name = 2;</div></pre></td></tr></table></figure>
 <ul>
-<li><p>or 使用：<figure class="highlight plain"><figcaption><span>-qO-</span><a href="https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh" target="_blank" rel="external">| bash ```</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">- vim ~/.bashrc 写入下面代码</div><div class="line">        </div><div class="line">``` </div><div class="line">export NVM_DIR=&quot;$HOME/.nvm&quot;</div><div class="line">[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; . &quot;$NVM_DIR/nvm.sh&quot; # This loads nvm</div></pre></td></tr></table></figure></p>
+<li><strong>避免strvar方法，很小或者很大数字出现科学计数的问题。</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public function covertNumber2Str($data)</div><div class="line">&#123;</div><div class="line">    $sql = &apos;SELECT CONVERT(?, CHAR(50)) as rst&apos;;</div><div class="line">    $result = $this-&gt;db-&gt;query($sql, $data);</div><div class="line">    return $result-&gt;row_array()[&apos;rst&apos;];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>【<strong>Command</strong>】</li>
+</ol>
+<p>mac os x 查看网络端口情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">使用 netstat 命令</div><div class="line">a. `netstat -nat | grep &lt;端口号&gt;`  , 如命令 `netstat -nat | grep 3306`</div><div class="line">b. `netstat -nat |grep LISTEN`</div><div class="line">        </div><div class="line">使用 lsof 命令</div><div class="line">$ lsof -n -P -i TCP -s TCP:LISTEN</div></pre></td></tr></table></figure>
+<ol>
+<li>【<strong>Docker</strong>】</li>
+</ol>
+<p><strong>常用命令</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">查看当前运行的容器：docker ps </div><div class="line">查看所有容器 ：docker ps -a</div><div class="line">        </div><div class="line">停止容器：docker stop 容器name或id</div><div class="line">启动容器：docker start 容器name或id</div><div class="line">port-redis容器的端口映射：sudo docker run -d -p 6379:6379 --name port-redis redis</div><div class="line">        </div><div class="line">删除容器：docker rm 容器id</div><div class="line">删除所有容器：docker rm $&#123;docker -a -q&#125;</div><div class="line">容器日志：docker logs 容器name或id</div><div class="line">登录容器：docker exec -it 容器name或id bash </div><div class="line">----        ----        ----        ----        ----</div><div class="line">docker run  -d --name coin-tron  \</div><div class="line">-p 11094:80 \</div><div class="line">--net bitkan --ip 172.19.0.94 \</div><div class="line">-v $DEV_SOURCE_DIR/:/data/www/ \</div><div class="line">-v db-code-tron:/usr/local/mysql/var/ \</div><div class="line">base-coin</div><div class="line">        </div><div class="line">docker run  -d --name coin-bch  \</div><div class="line">-p 11083:80 \</div><div class="line">--net bitkan --ip 172.19.0.94 \</div><div class="line">-v $DEV_SOURCE_DIR/:/data/www/ \</div><div class="line">-v db-code-bch:/usr/local/mysql/var/ \</div><div class="line">image-btc</div><div class="line">----        ----        ----        ----        ----</div></pre></td></tr></table></figure>
+<ol>
+<li>【<strong>协议理解</strong>】<blockquote>
+<p><strong>SSL</strong></p>
+</blockquote>
 </li>
+</ol>
+<blockquote>
+<p>SSL(Secure Socket Layer，安全套接层) 简单来说是一种加密技术, 通过它, 我们可以在通信的双方上建立一个安全的通信链路, 因此数据交互的双方可以安全地通信, 而不需要担心数据被窃取. 关于 SSL 的深入知识, 可以看这篇文章: SSL/TLS协议运行机制的概述</p>
+<p><strong>WSS</strong></p>
+<p>WSS 是 Web Socket Secure 的简称, 它是 WebSocket 的加密版本. 我们知道 WebSocket 中的数据是不加密的, 但是不加密的数据很容易被别有用心的人窃取, 因此为了保护数据安全, 人们将 WebSocket 与 SSL 结合, 实现了安全的 WebSocket 通信, 即 WebSocket Secure.<br>所以说 WSS 是使用 SSL 进行加密了的 WebSocket 通信技术.</p>
+<p><strong>HTTPS</strong></p>
+<p>其实 HTTPS 和 WSS 类似, HTTP 之于 HTTPS 就像 WebSocket 之于 WebSocket Secure.<br>HTTP 协议本身也是明文传输, 因此为了数据的安全性, 人们利用 SSL 作为加密通道, 在 SSL 之上传递 HTTP 数据, 因此 SSL 加密通道上运行的 HTTP 协议就被称为 HTTPS 了.</p>
+</blockquote>
+<ol>
+<li><p>【<strong>PHP 7 &amp;&amp; LUMEN</strong>】搭建基于配置的API接口</p>
+</li>
+<li><p>【<strong>网易云·云信</strong>】<a href="http://dev.yunxin.163.com/" target="_blank" rel="external">云信</a> IM通讯</p>
+</li>
+</ol>
+<blockquote>
+<p>单聊、群聊、聊天室功能等</p>
+</blockquote>
+<ol>
+<li>【<strong>sftp</strong>】</li>
+</ol>
+<p><strong>压缩</strong><br>tar -czf jpg.tar.gz <em>.jpg   //将目录里所有jpg文件打包成jpg.tar后，并且将其用gzip压缩，生成一个gzip压缩过的包，命名为jpg.tar.gz<br><em>*解压</em></em><br>tar -xzvf file.tar.gz //解压tar.gz</p>
+<p>1）将文件转入proxy跳板机中，首先进入proxy</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#进入本地相应目录，使用</div><div class="line">sftp proxy</div><div class="line">sftp&gt; put node_modules.tar.gz</div></pre></td></tr></table></figure>
+<p>2）进入跳板机后，找到相应路径，推送到服务器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sftp -i ~/.ssh/id_rsa root@192.168.20.228</div><div class="line">sftp&gt; put node_modules.tar.gz</div></pre></td></tr></table></figure>
+<ol>
+<li>【<strong>hg 暂存 shelve</strong>】</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">vim ~/.hgrc</div><div class="line">=&gt; </div><div class="line">[extensions]</div><div class="line">shelve =</div><div class="line"># 使用 shelve 暂存, unshelve 还原</div><div class="line">hg shelve -n &quot;Unix test&quot;</div><div class="line">hg unshelve -n &quot;Unix test&quot;</div></pre></td></tr></table></figure>
+<ol>
+<li>【<strong>mocha 测试用例</strong>】        </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">安装：npm install -g mocha</div><div class="line">启动：mocha xx.js</div></pre></td></tr></table></figure>
+<ol>
+<li>【<strong>安装nvm，node, pm2</strong>】</li>
+</ol>
+<ul>
+<li>Install nvm : <a href="https://github.com/creationix/nvm" target="_blank" rel="external">nvm</a></li>
+<li><p>使用：<figure class="highlight plain"><figcaption><span>-o-</span><a href="https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh" target="_blank" rel="external">| bash ```</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- or 使用：``` wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash</div></pre></td></tr></table></figure></p>
+</li>
+<li><p>vim ~/.bashrc 写入下面代码</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export NVM_DIR=&quot;$HOME/.nvm&quot;</div><div class="line">[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; . &quot;$NVM_DIR/nvm.sh&quot; # This loads nvm</div></pre></td></tr></table></figure>
+<ul>
 <li><p>不重启生效 <figure class="highlight plain"><figcaption><span>~/.bashrc ```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- 安装node ``` nvm i 8.12.0</div></pre></td></tr></table></figure></p>
 </li>
 <li><p>安装pm2         <figure class="highlight plain"><figcaption><span>i -g pm2 ```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- nvm常用指令：</div></pre></td></tr></table></figure></p>
 </li>
 </ul>
-<p>nvm uninstall 6.11.0     // 移除 node 6.11.0<br>nvm use 6.11.0           // 使用 node 6.11.0<br>nvm ls                   // 查看目前已安装的 node 及当前所使用的 node<br>nvm ls-remote            // 查看目前线上所能安装的所有 node 版本<br>nvm alias default 6.11.0 // 使用 6.11.0 作为预设使用的 node 版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">11. **【php CURL请求http和https】**</div></pre></td></tr></table></figure></p>
+<p>nvm uninstall 6.11.0     // 移除 node 6.11.0<br>nvm use 6.11.0           // 使用 node 6.11.0<br>nvm ls                   // 查看目前已安装的 node 及当前所使用的 node<br>nvm ls-remote            // 查看目前线上所能安装的所有 node 版本<br>nvm alias default 6.11.0 // 使用 6.11.0 作为预设使用的 node 版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">12. **【php CURL请求http和https】**</div></pre></td></tr></table></figure></p>
 <p>常规curl请求：<br>$url = ‘<a href="http://www.jb51.net" target="_blank" rel="external">http://www.jb51.net</a>‘;<br>$curl = curl_init();<br>curl_setopt($curl, CURLOPT_URL, $url);<br>curl_setopt($curl, CURLOPT_HEADER, 1);<br>curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);<br>$data = curl_exec($curl);<br>curl_close($curl);<br>var_dump($data);</p>
 <p>使用curl请求HTTPS：<br>$url = ‘<a href="https://www.jb51.net" target="_blank" rel="external">https://www.jb51.net</a>‘;<br>$curl = curl_init();<br>curl_setopt($curl, CURLOPT_URL, $url);<br>curl_setopt($curl, CURLOPT_HEADER, 1);<br>curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);<br>curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);//这个是重点。<br>$data = curl_exec($curl);<br>curl_close($curl);<br>var_dump($data);</p>
 <p>注意<br>当请求https的数据时，会要求证书，这时候，加上下面这两个参数，规避ssl的证书检查</p>
