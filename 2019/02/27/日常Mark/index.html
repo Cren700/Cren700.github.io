@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://blog.cren700.com">
   <title>日常Mark | Cren码上Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Learning log getopt:从命令行参数列表中获取选项1array getopt ( string $options [, array $longopts [, int &amp;amp;$optind ]] )   eg: 123// Script example.php$options = getopt(&amp;quot;f:hp:&amp;quot;);var_dump($options); 终端：">
+  <meta name="description" content="Learning log 【CODE】  1）【PHP】  getopt:从命令行参数列表中获取选项1array getopt ( string $options [, array $longopts [, int &amp;amp;$optind ]] )   eg: 123// Script example.php$options = getopt(&amp;quot;f:hp:&amp;quot;);var_dum">
 <meta property="og:type" content="article">
 <meta property="og:title" content="日常Mark">
 <meta property="og:url" content="http://blog.cren700.com/2019/02/27/日常Mark/index.html">
 <meta property="og:site_name" content="Cren码上Blog">
-<meta property="og:description" content="Learning log getopt:从命令行参数列表中获取选项1array getopt ( string $options [, array $longopts [, int &amp;amp;$optind ]] )   eg: 123// Script example.php$options = getopt(&amp;quot;f:hp:&amp;quot;);var_dump($options); 终端：">
+<meta property="og:description" content="Learning log 【CODE】  1）【PHP】  getopt:从命令行参数列表中获取选项1array getopt ( string $options [, array $longopts [, int &amp;amp;$optind ]] )   eg: 123// Script example.php$options = getopt(&amp;quot;f:hp:&amp;quot;);var_dum">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-02-27T03:10:54.000Z">
+<meta property="og:updated_time" content="2019-02-27T03:14:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日常Mark">
-<meta name="twitter:description" content="Learning log getopt:从命令行参数列表中获取选项1array getopt ( string $options [, array $longopts [, int &amp;amp;$optind ]] )   eg: 123// Script example.php$options = getopt(&amp;quot;f:hp:&amp;quot;);var_dump($options); 终端：">
+<meta name="twitter:description" content="Learning log 【CODE】  1）【PHP】  getopt:从命令行参数列表中获取选项1array getopt ( string $options [, array $longopts [, int &amp;amp;$optind ]] )   eg: 123// Script example.php$options = getopt(&amp;quot;f:hp:&amp;quot;);var_dum">
   
     <link rel="alternative" href="/atom.xml" title="Cren码上Blog" type="application/atom+xml">
   
@@ -179,7 +179,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Learning-log"><a href="#Learning-log" class="headerlink" title="Learning log"></a><center>Learning log</center></h2><ul>
+        <h2 id="Learning-log"><a href="#Learning-log" class="headerlink" title="Learning log"></a><center>Learning log</center></h2><ol>
+<li>【<strong>CODE</strong>】</li>
+</ol>
+<p>1）【PHP】</p>
+<ul>
 <li><strong>getopt:从命令行参数列表中获取选项</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">array getopt ( string $options [, array $longopts [, int &amp;$optind ]] )</div></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -192,8 +196,13 @@
 <ul>
 <li><strong>异步执行函数 register_shutdown_function</strong></li>
 <li><strong>bcsub — 2个任意精度数字的减法</strong></li>
-<li><strong>file_get_contents post数据提交方式</strong></li>
+<li><p><strong>file_get_contents post数据提交方式</strong></p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">    $POSTFIELDS = array(&quot;receipt-data&quot; =&gt; $receipt_data);    //</div><div class="line">$POSTFIELDS = json_encode($POSTFIELDS);    // 注释了也没用</div><div class="line">$url = &quot;https://sandbox.itunes.apple.com/verifyReceipt&quot;;</div><div class="line"></div><div class="line">$context = stream_context_create(array(</div><div class="line">    &apos;http&apos; =&gt; array(</div><div class="line">        &apos;method&apos;  =&gt; &apos;POST&apos;,</div><div class="line">        &apos;header&apos;  =&gt; &quot;Content-type: application/x-www-form-urlencoded&quot;,</div><div class="line">        &apos;content&apos; =&gt; http_build_query($POSTFIELDS),</div><div class="line">        &apos;timeout&apos; =&gt; 20,</div><div class="line">    )</div><div class="line">));</div><div class="line">return file_get_contents($url, false, $context);</div></pre></td></tr></table></figure>
+</code></pre></li>
+<li><p><strong>CI validation</strong></p>
+</li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$this-&gt;load-&gt;library(&apos;form_validation&apos;);</div><div class="line">$this-&gt;form_validation-&gt;set_rules(&apos;email&apos;,&apos;email&apos;,&apos;trim|required|valid_email|max_length[64]|is_unique[tbl_admin.email]&apos;);</div><div class="line">$this-&gt;form_validation-&gt;set_rules(&apos;name&apos;,&apos;name&apos;,&apos;trim|required|max_length[12]|is_unique[tbl_admin.name]&apos;);</div><div class="line">$this-&gt;form_validation-&gt;set_rules(&apos;password&apos;,&apos;password&apos;,&apos;trim|required|max_length[64]&apos;);</div><div class="line">if(!$this-&gt;form_validation-&gt;run())</div><div class="line">&#123;</div><div class="line">    echo $this-&gt;json_result(INVALID_INPUT, validation_errors());</div><div class="line">    return;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
 
