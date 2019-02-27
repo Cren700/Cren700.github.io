@@ -180,17 +180,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##<center>Learning log</center>##</p>
+        <p>##Learning log</p>
 <ol>
 <li><p>【<strong>CODE</strong>】</p>
-<pre><code> **1）**【**PHP**】
+<pre><code>1）【PHP】
 - **getopt:从命令行参数列表中获取选项**
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">array getopt ( string $options [, array $longopts [, int &amp;$optind ]] )</div></pre></td></tr></table></figure>
-
-eg:
 </code></pre></li>
 </ol>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// Script example.php</div><div class="line">$options = getopt(&quot;f:hp:&quot;);</div><div class="line">var_dump($options);</div></pre></td></tr></table></figure>
+<pre><code>eg:
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// Script example.php</div><div class="line">$options = getopt(&quot;f:hp:&quot;);</div><div class="line">var_dump($options);</div></pre></td></tr></table></figure>
 
 终端：
 
@@ -207,170 +208,7 @@ eg:
         <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">    $POSTFIELDS = array(&quot;receipt-data&quot; =&gt; $receipt_data);    //</div><div class="line">$POSTFIELDS = json_encode($POSTFIELDS);    // 注释了也没用</div><div class="line">$url = &quot;https://sandbox.itunes.apple.com/verifyReceipt&quot;;</div><div class="line">        </div><div class="line">$context = stream_context_create(array(</div><div class="line">    &apos;http&apos; =&gt; array(</div><div class="line">        &apos;method&apos;  =&gt; &apos;POST&apos;,</div><div class="line">        &apos;header&apos;  =&gt; &quot;Content-type: application/x-www-form-urlencoded&quot;,</div><div class="line">        &apos;content&apos; =&gt; http_build_query($POSTFIELDS),</div><div class="line">        &apos;timeout&apos; =&gt; 20,</div><div class="line">    )</div><div class="line">));</div><div class="line">return file_get_contents($url, false, $context);</div></pre></td></tr></table></figure>
 
 - 
-
-**2)**【**MYSQL**】 
-- **行级锁**
-
-一旦用户对某个行施加了行级加锁，则该用户可以查询也可以更新被加锁的数据行，其它用户只能查询但不能更新被加锁的数据行．如果其它用户想更新该表中的数据行，则也必须对该表施加行级锁．即使多个用户对一个表均使用了共享更新，但也不允许两个事务同时对一个表进行更新，真正对表进行更新时，是以独占方式锁表，一直到提交或复原该事务为止。行锁永远是独占方式锁。
-</code></pre><p>只有当出现如下之一的条件，便释放共享更新锁：</p>
-<pre><code>    （1）、执行提交（COMMIT）语句；
-
-    （2）、退出数据库（LOG　OFF）
-
-    （3）、程序停止运行。
-
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">　　　共享锁：</div><div class="line">　　　名词解释：共享锁又叫做读锁，所有的事务只能对其进行读操作不能写操作，加上共享锁后在事务结束之前其他事务只能再加共享锁，除此之外其他任何类型的锁都不能再加了。</div><div class="line">　　　用法：SELECT `id` FROM  table WHERE　id in(1,2)   LOCK IN SHARE MODE 结果集的数据都会加共享锁</div><div class="line">　　　排他锁：</div><div class="line">　　　名词解释：若某个事物对某一行加上了排他锁，只能这个事务对其进行读写，在此事务结束之前，其他事务不能对其进行加任何锁，其他进程可以读取,不能进行写操作，需等待其释放。</div><div class="line">　　　用法：SELECT `id` FROM mk_user WHERE id=1 FOR UPDATE</div></pre></td></tr></table></figure>
-
-    &gt; Select …forupdate语句是我们经常使用手工加锁语句。通常情况下，select语句是不会对数据加锁，妨碍影响其他的DML和DDL操作。同时，在多版本一致读机制的支持下，select语句也不会被其他类型语句所阻碍。
-
-    - **数据库备份和还原**
-
-    1.数据库备份
-
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#导出数据库</div><div class="line">mysqldump -p --databases coin9 &gt; /tmp/coin9.sql</div><div class="line">#导出单个数据表结构和数据</div><div class="line">mysqldump -h localhost -uroot -proot  coins tbl_eth_tokens &gt; dump.sql</div><div class="line">#直接将MySQL数据库压缩备份</div><div class="line">mysqldump -hhostname -uusername -ppassword -database databasename | gzip &gt; backupfile.sql.gz</div></pre></td></tr></table></figure>
-
-    2.还原
-
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; source /tmp/coin11.tpl</div></pre></td></tr></table></figure>
-
-
-    - **重新设置AUTO_INCREMENT自增值方法**
-
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE test AUTO_INCREMENT = n</div></pre></td></tr></table></figure>
-
-
-    - **修改mysql账户密码**
-
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">update mysql.user set password=password(&apos;W*91#VeDc4kUTE7*&apos;) where User=&apos;dev&apos; and Host=&apos;%&apos;;</div><div class="line">  flush privileges;</div></pre></td></tr></table></figure>
-
-    3.插入或者更新
-
-    <figure class="highlight plain"><figcaption><span>into tbl set name = 1 on duplicate key update name = 2;```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">4.避免strvar方法，很小或者很大数字出现科学计数的问题。</div></pre></td></tr></table></figure>
-
-public function covertNumber2Str($data)
-{
-    $sql = &apos;SELECT CONVERT(?, CHAR(50)) as rst&apos;;
-    $result = $this-&gt;db-&gt;query($sql, $data);
-    return $result-&gt;row_array()[&apos;rst&apos;];
-}
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">**3)CI validation**</div></pre></td></tr></table></figure>
-
-    $this-&gt;load-&gt;library(&apos;form_validation&apos;);
-$this-&gt;form_validation-&gt;set_rules(&apos;email&apos;,&apos;email&apos;,&apos;trim|required|valid_email|max_length[64]|is_unique[tbl_admin.email]&apos;);
-$this-&gt;form_validation-&gt;set_rules(&apos;name&apos;,&apos;name&apos;,&apos;trim|required|max_length[12]|is_unique[tbl_admin.name]&apos;);
-$this-&gt;form_validation-&gt;set_rules(&apos;password&apos;,&apos;password&apos;,&apos;trim|required|max_length[64]&apos;);
-if(!$this-&gt;form_validation-&gt;run())
-{
-    echo $this-&gt;json_result(BK_CODE_INVALID_INPUT, validation_errors());
-    return;
-}
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">        </div><div class="line">1. 【**Command**】</div><div class="line"></div><div class="line">        mac os x 查看网络端口情况</div></pre></td></tr></table></figure>
-
-    使用 netstat 命令
-    a. `netstat -nat | grep &lt;端口号&gt;`  , 如命令 `netstat -nat | grep 3306`
-    b. `netstat -nat |grep LISTEN`
-
-    使用 lsof 命令
-    $ lsof -n -P -i TCP -s TCP:LISTEN
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">        </div><div class="line">3. 【**Docker**】</div><div class="line"></div><div class="line">        **常用命令**</div></pre></td></tr></table></figure>
-
-    查看当前运行的容器：docker ps 
-    查看所有容器 ：docker ps -a
-
-    停止容器：docker stop 容器name或id
-    启动容器：docker start 容器name或id
-    port-redis容器的端口映射：sudo docker run -d -p 6379:6379 --name port-redis redis
-
-    删除容器：docker rm 容器id
-    删除所有容器：docker rm ${docker -a -q}
-    容器日志：docker logs 容器name或id
-    登录容器：docker exec -it 容器name或id bash 
-    ----        ----        ----        ----        ----
-    docker run  -d --name coin-tron  \
-    -p 11094:80 \
-    --net bitkan --ip 172.19.0.94 \
-    -v $DEV_SOURCE_DIR/:/data/www/ \
-    -v db-code-tron:/usr/local/mysql/var/ \
-    base-coin
-
-    docker run  -d --name coin-bch  \
-    -p 11083:80 \
-    --net bitkan --ip 172.19.0.94 \
-    -v $DEV_SOURCE_DIR/:/data/www/ \
-    -v db-code-bch:/usr/local/mysql/var/ \
-    image-btc
-    ----        ----        ----        ----        ----
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">4. 【**协议理解**】</div><div class="line">        &gt;**SSL**</div><div class="line"></div><div class="line">        &gt;SSL(Secure Socket Layer，安全套接层) 简单来说是一种加密技术, 通过它, 我们可以在通信的双方上建立一个安全的通信链路, 因此数据交互的双方可以安全地通信, 而不需要担心数据被窃取. 关于 SSL 的深入知识, 可以看这篇文章: SSL/TLS协议运行机制的概述</div><div class="line">        </div><div class="line">        &gt;**WSS**</div><div class="line">        </div><div class="line">        &gt;WSS 是 Web Socket Secure 的简称, 它是 WebSocket 的加密版本. 我们知道 WebSocket 中的数据是不加密的, 但是不加密的数据很容易被别有用心的人窃取, 因此为了保护数据安全, 人们将 WebSocket 与 SSL 结合, 实现了安全的 WebSocket 通信, 即 WebSocket Secure.</div><div class="line">        所以说 WSS 是使用 SSL 进行加密了的 WebSocket 通信技术.</div><div class="line">        </div><div class="line">        &gt;**HTTPS**</div><div class="line">        </div><div class="line">        &gt;其实 HTTPS 和 WSS 类似, HTTP 之于 HTTPS 就像 WebSocket 之于 WebSocket Secure.</div><div class="line">        HTTP 协议本身也是明文传输, 因此为了数据的安全性, 人们利用 SSL 作为加密通道, 在 SSL 之上传递 HTTP 数据, 因此 SSL 加密通道上运行的 HTTP 协议就被称为 HTTPS 了.</div><div class="line">        </div><div class="line">        </div><div class="line">5. 【**PHP 7 &amp;&amp; LUMEN**】搭建基于配置的API接口</div><div class="line"></div><div class="line">6. 【**网易云·云信**】[云信](http://dev.yunxin.163.com/) IM通讯</div><div class="line">        </div><div class="line">        &gt; 单聊、群聊、聊天室功能等</div><div class="line"></div><div class="line">7. 【**sftp**】</div><div class="line"></div><div class="line">        **压缩**</div><div class="line">        tar -czf jpg.tar.gz *.jpg   //将目录里所有jpg文件打包成jpg.tar后，并且将其用gzip压缩，生成一个gzip压缩过的包，命名为jpg.tar.gz</div><div class="line">        **解压**</div><div class="line">        tar -xzvf file.tar.gz //解压tar.gz</div><div class="line">        </div><div class="line">        1）将文件转入proxy跳板机中，首先进入proxy</div></pre></td></tr></table></figure>
-
-    #进入本地相应目录，使用
-    sftp proxy
-    sftp&gt; put node_modules.tar.gz
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">2）进入跳板机后，找到相应路径，推送到服务器</div></pre></td></tr></table></figure>
-
-    sftp -i ~/.ssh/id_rsa root@192.168.20.228
-    sftp&gt; put node_modules.tar.gz
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">8. 【**hg 暂存 shelve**】</div></pre></td></tr></table></figure>
-
-    vim ~/.hgrc
-</code></pre><p>=&gt;<br>        [extensions]<br>        shelve =</p>
-<pre><code># 使用 shelve 暂存, unshelve 还原
-hg shelve -n &quot;Unix test&quot;
-hg unshelve -n &quot;Unix test&quot;
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">9. 【**mocha 测试用例**】</div></pre></td></tr></table></figure>
-
-安装：npm install -g mocha
-启动：mocha xx.js
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">        </div><div class="line">10. 【**安装nvm，node, pm2**】</div><div class="line">        - Install nvm : [nvm](https://github.com/creationix/nvm)</div><div class="line">        - 使用：``` curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash</div></pre></td></tr></table></figure>
-
-- or 使用：<figure class="highlight plain"><figcaption><span>-qO-</span><a href="https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh" target="_blank" rel="external">| bash ```</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">- vim ~/.bashrc 写入下面代码</div><div class="line"></div><div class="line">``` </div><div class="line">export NVM_DIR=&quot;$HOME/.nvm&quot;</div><div class="line">[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; . &quot;$NVM_DIR/nvm.sh&quot; # This loads nvm</div></pre></td></tr></table></figure>
-
-- 不重启生效 <figure class="highlight plain"><figcaption><span>~/.bashrc ```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- 安装node ``` nvm i 8.12.0</div></pre></td></tr></table></figure>
-
-- 安装pm2         <figure class="highlight plain"><figcaption><span>i -g pm2 ```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- nvm常用指令：</div></pre></td></tr></table></figure>
-
-nvm uninstall 6.11.0     // 移除 node 6.11.0
-nvm use 6.11.0           // 使用 node 6.11.0
-nvm ls                   // 查看目前已安装的 node 及当前所使用的 node
-nvm ls-remote            // 查看目前线上所能安装的所有 node 版本
-nvm alias default 6.11.0 // 使用 6.11.0 作为预设使用的 node 版本        
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">11. **【php CURL请求http和https】**</div></pre></td></tr></table></figure>
-
-常规curl请求：
-$url = &apos;http://www.jb51.net&apos;;
-$curl = curl_init();
-curl_setopt($curl, CURLOPT_URL, $url);
-curl_setopt($curl, CURLOPT_HEADER, 1);
-curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-$data = curl_exec($curl);
-curl_close($curl);
-var_dump($data);
-
-使用curl请求HTTPS：
-$url = &apos;https://www.jb51.net&apos;;
-$curl = curl_init();
-curl_setopt($curl, CURLOPT_URL, $url);
-curl_setopt($curl, CURLOPT_HEADER, 1);
-curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);//这个是重点。
-$data = curl_exec($curl);
-curl_close($curl);
-var_dump($data);
-
-注意
-当请求https的数据时，会要求证书，这时候，加上下面这两个参数，规避ssl的证书检查
-
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE); // https请求 不验证证书和hosts
-curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
-
-```
-</code></pre><ol>
-<li><p><strong>【同步代码】</strong></p>
-<pre><code>使用```rsync inotifywait ansible```同步代码
-</code></pre></li>
-<li></li>
-</ol>
-<p><strong><strong><strong><em>*</em></strong></strong></strong>当你发现自己的才华撑不起野心时，就请安静下来学习<strong><strong><strong><em>*</em></strong></strong></strong></p>
-
+</code></pre>
       
 
       
