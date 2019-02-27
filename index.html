@@ -299,17 +299,23 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export NVM_DIR=&quot;$HOME/.nvm&quot;</div><div class="line">[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; . &quot;$NVM_DIR/nvm.sh&quot; # This loads nvm</div></pre></td></tr></table></figure>
 <ul>
-<li><p>不重启生效 <figure class="highlight plain"><figcaption><span>~/.bashrc ```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- 安装node ``` nvm i 8.12.0</div></pre></td></tr></table></figure></p>
+<li><p>不重启生效  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source ~/.bashrc</div></pre></td></tr></table></figure>
 </li>
-<li><p>安装pm2         <figure class="highlight plain"><figcaption><span>i -g pm2 ```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- nvm常用指令：</div></pre></td></tr></table></figure></p>
+<li><p>安装node  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm i 8.12.0</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装pm2         </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i -g pm2</div></pre></td></tr></table></figure>
+</li>
+<li><p>nvm常用指令：   </p>
 </li>
 </ul>
-<p>nvm uninstall 6.11.0     // 移除 node 6.11.0<br>nvm use 6.11.0           // 使用 node 6.11.0<br>nvm ls                   // 查看目前已安装的 node 及当前所使用的 node<br>nvm ls-remote            // 查看目前线上所能安装的所有 node 版本<br>nvm alias default 6.11.0 // 使用 6.11.0 作为预设使用的 node 版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">12. **【php CURL请求http和https】**</div></pre></td></tr></table></figure></p>
-<p>常规curl请求：<br>$url = ‘<a href="http://www.jb51.net" target="_blank" rel="external">http://www.jb51.net</a>‘;<br>$curl = curl_init();<br>curl_setopt($curl, CURLOPT_URL, $url);<br>curl_setopt($curl, CURLOPT_HEADER, 1);<br>curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);<br>$data = curl_exec($curl);<br>curl_close($curl);<br>var_dump($data);</p>
-<p>使用curl请求HTTPS：<br>$url = ‘<a href="https://www.jb51.net" target="_blank" rel="external">https://www.jb51.net</a>‘;<br>$curl = curl_init();<br>curl_setopt($curl, CURLOPT_URL, $url);<br>curl_setopt($curl, CURLOPT_HEADER, 1);<br>curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);<br>curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);//这个是重点。<br>$data = curl_exec($curl);<br>curl_close($curl);<br>var_dump($data);</p>
-<p>注意<br>当请求https的数据时，会要求证书，这时候，加上下面这两个参数，规避ssl的证书检查</p>
-<p>curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE); // https请求 不验证证书和hosts<br>curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);</p>
-<p>```</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">nvm uninstall 6.11.0     // 移除 node 6.11.0</div><div class="line">nvm use 6.11.0           // 使用 node 6.11.0</div><div class="line">nvm ls                   // 查看目前已安装的 node 及当前所使用的 node</div><div class="line">nvm ls-remote            // 查看目前线上所能安装的所有 node 版本</div><div class="line">nvm alias default 6.11.0 // 使用 6.11.0 作为预设使用的 node 版本</div></pre></td></tr></table></figure>
+<ol>
+<li><strong>【php CURL请求http和https】</strong></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">常规curl请求：</div><div class="line">$url = &apos;http://www.jb51.net&apos;;</div><div class="line">$curl = curl_init();</div><div class="line">curl_setopt($curl, CURLOPT_URL, $url);</div><div class="line">curl_setopt($curl, CURLOPT_HEADER, 1);</div><div class="line">curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);</div><div class="line">$data = curl_exec($curl);</div><div class="line">curl_close($curl);</div><div class="line">var_dump($data);</div><div class="line">        </div><div class="line">使用curl请求HTTPS：</div><div class="line">$url = &apos;https://www.jb51.net&apos;;</div><div class="line">$curl = curl_init();</div><div class="line">curl_setopt($curl, CURLOPT_URL, $url);</div><div class="line">curl_setopt($curl, CURLOPT_HEADER, 1);</div><div class="line">curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);</div><div class="line">curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);//这个是重点。</div><div class="line">$data = curl_exec($curl);</div><div class="line">curl_close($curl);</div><div class="line">var_dump($data);</div><div class="line">        </div><div class="line">注意</div><div class="line">当请求https的数据时，会要求证书，这时候，加上下面这两个参数，规避ssl的证书检查</div><div class="line">        </div><div class="line">curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE); // https请求 不验证证书和hosts</div><div class="line">curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);</div></pre></td></tr></table></figure>
 <ol>
 <li><strong>【同步代码】</strong></li>
 </ol>
