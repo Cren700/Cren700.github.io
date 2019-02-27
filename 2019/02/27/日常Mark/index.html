@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://blog.cren700.com">
   <title>日常Mark | Cren码上Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Learning log 【CODE】 1）【PHP】 - **getopt:从命令行参数列表中获取选项** 1array getopt ( string $options [, array $longopts [, int &amp;amp;$optind ]] )   eg:   123// Script example.php$options = getopt(&amp;quot;f:hp:&amp;quot;);">
+  <meta name="description" content="Learning log getopt:从命令行参数列表中获取选项1array getopt ( string $options [, array $longopts [, int &amp;amp;$optind ]] )   eg: 123// Script example.php$options = getopt(&amp;quot;f:hp:&amp;quot;);var_dump($options); 终端：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="日常Mark">
 <meta property="og:url" content="http://blog.cren700.com/2019/02/27/日常Mark/index.html">
 <meta property="og:site_name" content="Cren码上Blog">
-<meta property="og:description" content="Learning log 【CODE】 1）【PHP】 - **getopt:从命令行参数列表中获取选项** 1array getopt ( string $options [, array $longopts [, int &amp;amp;$optind ]] )   eg:   123// Script example.php$options = getopt(&amp;quot;f:hp:&amp;quot;);">
+<meta property="og:description" content="Learning log getopt:从命令行参数列表中获取选项1array getopt ( string $options [, array $longopts [, int &amp;amp;$optind ]] )   eg: 123// Script example.php$options = getopt(&amp;quot;f:hp:&amp;quot;);var_dump($options); 终端：">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-02-27T03:08:50.000Z">
+<meta property="og:updated_time" content="2019-02-27T03:10:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日常Mark">
-<meta name="twitter:description" content="Learning log 【CODE】 1）【PHP】 - **getopt:从命令行参数列表中获取选项** 1array getopt ( string $options [, array $longopts [, int &amp;amp;$optind ]] )   eg:   123// Script example.php$options = getopt(&amp;quot;f:hp:&amp;quot;);">
+<meta name="twitter:description" content="Learning log getopt:从命令行参数列表中获取选项1array getopt ( string $options [, array $longopts [, int &amp;amp;$optind ]] )   eg: 123// Script example.php$options = getopt(&amp;quot;f:hp:&amp;quot;);var_dump($options); 终端：">
   
     <link rel="alternative" href="/atom.xml" title="Cren码上Blog" type="application/atom+xml">
   
@@ -179,30 +179,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Learning-log"><a href="#Learning-log" class="headerlink" title="Learning log"></a><center>Learning log</center></h2><ol>
-<li><p>【<strong>CODE</strong>】</p>
-<pre><code>1）【PHP】
-- **getopt:从命令行参数列表中获取选项**
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">array getopt ( string $options [, array $longopts [, int &amp;$optind ]] )</div></pre></td></tr></table></figure>
-</code></pre></li>
-</ol>
-<pre><code>eg:
-
-
+        <h2 id="Learning-log"><a href="#Learning-log" class="headerlink" title="Learning log"></a><center>Learning log</center></h2><ul>
+<li><strong>getopt:从命令行参数列表中获取选项</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">array getopt ( string $options [, array $longopts [, int &amp;$optind ]] )</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>eg:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// Script example.php</div><div class="line">$options = getopt(&quot;f:hp:&quot;);</div><div class="line">var_dump($options);</div></pre></td></tr></table></figure>
-
-终端：
-
+<p>终端：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">shell &gt; php example.php -fvalue -h</div></pre></td></tr></table></figure>
-
-输出：
-
+<p>输出：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">array(2) &#123;</div><div class="line">  [&quot;f&quot;]=&gt;</div><div class="line">  string(5) &quot;value&quot;</div><div class="line">  [&quot;h&quot;]=&gt;</div><div class="line">  bool(false)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>异步执行函数 register_shutdown_function</strong></li>
+<li><strong>bcsub — 2个任意精度数字的减法</strong></li>
+<li><strong>file_get_contents post数据提交方式</strong></li>
+</ul>
 
-- **异步执行函数 register_shutdown_function**
-- **bcsub — 2个任意精度数字的减法**
-- **file\_get\_contents post数据提交方式**
-</code></pre>
       
 
       
